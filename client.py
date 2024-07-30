@@ -16,3 +16,8 @@ class TestClient:
     async def send_message(self, message):
         channel = await self.app.fetch_channel(123456789)
         await channel.send(message)
+
+    async def execute_tests(self):
+        result = TestApp().run_tests()
+        message = f"Tests réussis! (Code retour : {result})"
+        await channel.send(message)
